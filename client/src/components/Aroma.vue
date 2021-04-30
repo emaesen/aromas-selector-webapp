@@ -1,72 +1,71 @@
 <template>
   <div class="aroma">
-    <div class="aroma-name">
-      <span class="name">Name</span>
-      <span class="value">{{ aroma.name }}</span>
+    <div class="aroma-prop aroma-name">
+      <span class="prop-value">{{ aroma.name }}</span>
     </div>
-    <div class="aroma-note">
-      <span class="name">Note</span>
-      <span class="value">{{ aroma.note.join(", ") }}</span>
+    <div class="aroma-prop aroma-note">
+      <span class="prop-name">Note</span>
+      <span class="prop-value">{{ aroma.note.join(", ") }}</span>
     </div>
-    <div class="aroma-families">
-      <span class="name">Aroma families</span>
-      <span class="value">{{ aroma.aromaFamilies.join(", ") }}</span>
+    <div class="aroma-prop aroma-families">
+      <span class="prop-name">Aroma families</span>
+      <span class="prop-value">{{ aroma.aromaFamilies.join(", ") }}</span>
     </div>
-    <div class="aroma-aroma">
-      <span class="name">Aroma</span>
-      <span class="value">{{ aroma.aroma }}</span>
+    <div class="aroma-prop aroma-aroma">
+      <span class="prop-name">Aroma</span>
+      <span class="prop-value">{{ aroma.aroma }}</span>
     </div>
-    <div class="aroma-fixative">
-      <span class="name">Fixative</span>
-      <span class="value">{{ aroma.fixative }}</span>
+    <div class="aroma-prop aroma-fixative">
+      <span class="prop-name">Fixative</span>
+      <span class="prop-value">{{ aroma.fixative }}</span>
     </div>
-    <div class="aroma-tenacious">
-      <span class="name">Tenacious</span>
-      <span class="value">{{ aroma.tenacious }}</span>
+    <div class="aroma-prop aroma-tenacious">
+      <span class="prop-name">Tenacious</span>
+      <span class="prop-value">{{ aroma.tenacious }}</span>
     </div>
-    <div class="aroma-diffusive">
-      <span class="name">Diffusive</span>
-      <span class="value">{{ aroma.diffusive }}</span>
+    <div class="aroma-prop aroma-diffusive">
+      <span class="prop-name">Diffusive</span>
+      <span class="prop-value">{{ aroma.diffusive }}</span>
     </div>
-    <div class="aroma-description">
-      <span class="name">Description</span>
-      <span class="value">{{ aroma.description }}</span>
+    <div class="aroma-prop aroma-description">
+      <span class="prop-name">Description</span>
+      <span class="prop-value">{{ aroma.description }}</span>
     </div>
-    <div class="aroma-appearance">
-      <span class="name">Appearance</span>
-      <span class="value">{{ aroma.appearance }}</span>
+    <div class="aroma-prop aroma-appearance">
+      <span class="prop-name">Appearance</span>
+      <span class="prop-value">{{ aroma.appearance }}</span>
     </div>
-    <div class="aroma-storage-suggestion">
-      <span class="name">Storage Suggestion</span>
-      <span class="value">{{ aroma.storageSuggestion }}</span>
+    <div class="aroma-prop aroma-storage-suggestion">
+      <span class="prop-name">Storage Suggestion</span>
+      <span class="prop-value">{{ aroma.storageSuggestion }}</span>
     </div>
-    <div class="aroma-blends-well-with">
-      <span class="name">Blends Well With</span>
-      <span class="value">{{ aroma.blendsWellWith.join(", ") }}</span>
+    <div class="aroma-prop aroma-blends-well-with">
+      <span class="prop-name">Blends Well With</span>
+      <span class="prop-value">{{ aroma.blendsWellWith.join(", ") }}</span>
     </div>
-    <div class="aroma-blending-suggestion">
-      <span class="name">Blending Suggestion</span>
-      <span class="value">{{ aroma.blendingSuggestion }}</span>
+    <div class="aroma-prop aroma-blending-suggestion">
+      <span class="prop-name">Blending Suggestion</span>
+      <span class="prop-value">{{ aroma.blendingSuggestion }}</span>
     </div>
-    <div class="aroma-safety-considerations">
-      <span class="name">Safety Considerations</span>
-      <span class="value">{{ aroma.safetyConsiderations }}</span>
+    <div class="aroma-prop aroma-safety-considerations">
+      <span class="prop-name">Safety Considerations</span>
+      <span class="prop-value">{{ aroma.safetyConsiderations }}</span>
     </div>
-    <div class="aroma-recommended-amount">
-      <span class="name">Recommended Amount</span>
-      <span class="value">{{ aroma.recommendedAmount }}</span>
+    <div class="aroma-prop aroma-recommended-amount">
+      <span class="prop-name">Recommended Amount</span>
+      <span class="prop-value">{{ aroma.recommendedAmount }}</span>
     </div>
-    <div class="aroma-recommended-combination">
-      <span class="name">Recommended Combination</span>
-      <span class="value">{{ aroma.recommendedCombination.join(", ") }}</span>
+    <div class="aroma-prop aroma-recommended-combination">
+      <span class="prop-name">Recommended Combination</span>
+      <span class="prop-value">{{ aroma.recommendedCombination.join(", ") }}</span>
     </div>
-    <div class="aroma-dilution-note">
-      <span class="name">Dilution Note</span>
-      <span class="value">{{ aroma.dilutionNote }}</span>
+    <div class="aroma-prop aroma-dilution-note">
+      <span class="prop-name">Dilution Note</span>
+      <span class="prop-value">{{ aroma.dilutionNote }}</span>
     </div>
-    <div class="aroma-popularity">
-      <span class="name">popularity</span>
-      <span class="value">{{ aroma.popularity }}</span>
+    <div class="aroma-prop aroma-popularity">
+      <span class="prop-name">popularity</span>
+      <span class="prop-value">{{ aroma.popularity }}</span>
     </div>
   </div>
 </template>
@@ -86,8 +85,16 @@ export default {
   .aroma {
     margin-bottom: 2em;
   }
-  .name {
+  .aroma-prop {
+    margin-bottom: .5em;
+    display: flex;
+  }
+  .prop-name {
     margin-right: 1em;
     font-weight: 700;
+    min-width: 10em;
+  }
+  .aroma-name .prop-value {
+    font-size: 150%;
   }
 </style>
