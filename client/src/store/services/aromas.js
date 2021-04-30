@@ -9,7 +9,23 @@ class Aroma extends BaseModel {
   // Define default properties here
   static instanceDefaults() {
     return {
-      name: ''
+      name: '',
+      note: [],
+      aromaFamilies: [],
+      aroma: '',
+      fixative: false,
+      tenacious: false,
+      diffusive: false,
+      description: '',
+      appearance: '',
+      storageSuggestion: '',
+      blendsWellWith: [],
+      blendingSuggestion: '',
+      safetyConsiderations: '',
+      recommendedAmount: '',
+      recommendedCombination: [],
+      dilutionNote: '',
+      popularity: ''
     }
   }
 }
