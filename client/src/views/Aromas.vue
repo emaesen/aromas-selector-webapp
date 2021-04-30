@@ -1,10 +1,6 @@
 <template>
   <main>
-    <header >
-      <div >
-        <span >Aromas</span>
-      </div>
-    </header>
+    <h1>Aromas</h1>
     <div>
       <AromaList :aromas="aromas" />
     </div>

@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <main>
-      <Aroma
-        v-for="aroma in aromas"
-        :key="aroma._id"
-        :aroma="aroma"
-      />
-    </main>
-
+  <div class="aromas">
+    <Aroma
+      v-for="aroma in aromas"
+      :key="aroma._id"
+      :aroma="aroma"
+    />
   </div>
 </template>
 
@@ -40,17 +37,8 @@ export default {
 </script>
 
 <style>
-.aroma {
-  flex: 0 0 auto;
+.aromas {
+  margin-top: 3em;
 }
-.aroma img.avatar {
-  margin-right: 10px;
-}
-.aroma p.aroma-header {
-  margin: 0;
-  font-size: 0.9em;
-}
-.aroma p.aroma-header span.sent-date {
-  color: #969696;
-}
+
 </style>

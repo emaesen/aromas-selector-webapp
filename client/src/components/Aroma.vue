@@ -83,7 +83,7 @@ export default {
 
 <style scoped>
   .aroma {
-    margin-bottom: 2em;
+    margin-bottom: 3em;
   }
   .aroma-prop {
     margin-bottom: .5em;
@@ -96,5 +96,6 @@ export default {
   }
   .aroma-name .prop-value {
     font-size: 150%;
+    font-style: italic;
   }
 </style>
