@@ -15,17 +15,11 @@
       <span class="prop-name">Aroma</span>
       <span class="prop-value">{{ aroma.aroma }}</span>
     </div>
-    <div class="aroma-prop aroma-fixative">
-      <span class="prop-name">Fixative</span>
-      <span class="prop-value">{{ aroma.fixative }}</span>
-    </div>
-    <div class="aroma-prop aroma-tenacious">
-      <span class="prop-name">Tenacious</span>
-      <span class="prop-value">{{ aroma.tenacious }}</span>
-    </div>
-    <div class="aroma-prop aroma-diffusive">
-      <span class="prop-name">Diffusive</span>
-      <span class="prop-value">{{ aroma.diffusive }}</span>
+    <div class="aroma-prop">
+      <span class="prop-name">Properties</span>
+      <span class="prop-value">
+        {{ aromaProperties}}
+      </span>
     </div>
     <div class="aroma-prop aroma-description">
       <span class="prop-name">Description</span>
@@ -76,6 +70,15 @@ export default {
     aroma: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    aromaProperties() {
+      const props = []
+      if (this.aroma.fixative) props.push("fixative")
+      if (this.aroma.tenacious) props.push("tenacious")
+      if (this.aroma.diffusive) props.push("diffusive")
+      return props.join(", ")
     }
   }
 }
