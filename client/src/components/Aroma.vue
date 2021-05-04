@@ -85,20 +85,23 @@ export default {
 </script>
 
 <style scoped>
-  .aroma {
-    margin-bottom: 3em;
-  }
-  .aroma-prop {
-    margin-bottom: .5em;
-    display: flex;
-  }
-  .prop-name {
-    margin-right: 1em;
-    font-weight: 700;
-    min-width: 10em;
-  }
-  .aroma-name .prop-value {
-    font-size: 150%;
-    font-style: italic;
-  }
+.aroma {
+  margin-bottom: 3em;
+}
+.aroma-prop {
+  margin-bottom: .5em;
+  display: flex;
+}
+.prop-name {
+  margin-right: 1em;
+  font-style: italic;
+  min-width: 10em;
+}
+.prop-name:after {
+  content: ":"
+}
+.aroma-name .prop-value {
+  font-size: 150%;
+  font-style: italic;
+}
 </style>
