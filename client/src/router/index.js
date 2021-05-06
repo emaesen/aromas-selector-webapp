@@ -11,7 +11,7 @@ const routes = [
     name: "Home",
     component: Home,
     beforeEnter(to, from, next) {
-      next("aromas");
+      next("aromas/");
     },
   },
   {
@@ -26,5 +26,23 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.options.scrollBehavior = function(to, from, savedPosition) {
+  return new Promise((resolve) => {
+    const is404 = to.name==="*"
+    setTimeout(() => {
+      if (to.hash && !is404) {
+        resolve( {
+          selector: to.hash,
+          behavior: 'smooth'
+        } );
+      } else if (savedPosition) {
+        resolve( savedPosition );
+      } else {
+        resolve( { x: 0, y: 0 } );
+      }
+    }, 500)
+  })
+}
 
 export default router
