@@ -1,7 +1,17 @@
 <template>
   <main>
     <h1>Aromas</h1>
-    <div>
+    <div class="summary-list">
+      <router-link
+        v-for="aromaID in aromaSummaryList"
+        :key="aromaID"
+        :to="'#'+aromaID"
+        class="action button"
+      >{{ aromaID }}
+      </router-link>
+    </div>
+
+    <div class="full-list">
       <AromaList :aromas="aromas" />
     </div>
 
@@ -18,7 +28,7 @@ import AromaList from '../components/Aromas'
 import AddAroma from '../components/AddAroma'
 
 export default {
-  name: 'Chat',
+  name: 'Aromas',
   components: {
     AromaList,
     AddAroma
@@ -42,6 +52,12 @@ export default {
 
     return {
       aromas
+    }
+  },
+  computed: {
+    aromaSummaryList() {
+      const aromas = this.aromas.map(a => a.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase())
+      return aromas
     }
   }
 }
