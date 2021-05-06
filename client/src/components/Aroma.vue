@@ -5,15 +5,15 @@
     </div>
     <div class="aroma-prop aroma-note">
       <span class="prop-name">Note</span>
-      <span class="prop-value">{{ aroma.note.join(", ") }}</span>
+      <span class="prop-value">{{ aroma.note.join(", ") || missingMsg }}</span>
     </div>
     <div class="aroma-prop aroma-families">
       <span class="prop-name">Aroma families</span>
-      <span class="prop-value">{{ aroma.aromaFamilies.join(", ") }}</span>
+      <span class="prop-value">{{ aroma.aromaFamilies.join(", ") || missingMsg }}</span>
     </div>
     <div class="aroma-prop aroma-aroma">
       <span class="prop-name">Aroma</span>
-      <span class="prop-value">{{ aroma.aroma }}</span>
+      <span class="prop-value">{{ aroma.aroma || missingMsg }}</span>
     </div>
     <div v-if="aromaProperties" class="aroma-prop">
       <span class="prop-name">Properties</span>
@@ -23,7 +23,7 @@
     </div>
     <div class="aroma-prop aroma-description">
       <span class="prop-name">Description</span>
-      <span class="prop-value">{{ aroma.description }}</span>
+      <span class="prop-value">{{ aroma.description || missingMsg }}</span>
     </div>
     <div v-if="aroma.appearance" class="aroma-prop aroma-appearance">
       <span class="prop-name">Appearance</span>
@@ -35,7 +35,7 @@
     </div>
     <div class="aroma-prop aroma-blends-well-with">
       <span class="prop-name">Blends Well With</span>
-      <span class="prop-value">{{ aroma.blendsWellWith.join(", ") }}</span>
+      <span class="prop-value">{{ aroma.blendsWellWith.join(", ") || missingMsg }}</span>
     </div>
     <div v-if="aroma.blendingSuggestion" class="aroma-prop aroma-blending-suggestion">
       <span class="prop-name">Blending Suggestion</span>
@@ -79,6 +79,9 @@ export default {
       if (this.aroma.tenacious) props.push("tenacious")
       if (this.aroma.diffusive) props.push("diffusive")
       return props.join(", ")
+    },
+    missingMsg() {
+      return "---!!-----MISSING-----!!---"
     }
   }
 }
