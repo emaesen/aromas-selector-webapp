@@ -2,7 +2,9 @@
   <div class="aroma" :id="aroma.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()">
     <div v-if="isEdit">
       <EditAroma
-        :aroma="aroma"
+        :aromaID="aroma._id"
+        @saved="onSaved"
+        @canceled="onCanceled"
       />
     </div>
 
@@ -38,40 +40,44 @@
         <span class="prop-name">Description</span>
         <span class="prop-value">{{ aroma.description || missingMsg }}</span>
       </div>
+      <div v-if="aroma.aromaProperties.length > 0" class="aroma-prop aroma-properties">
+        <span class="prop-name">Aroma properties</span>
+        <span class="prop-value">{{ aroma.aromaProperties.join(", ") }}</span>
+      </div>
       <div v-if="aroma.appearance" class="aroma-prop aroma-appearance">
         <span class="prop-name">Appearance</span>
         <span class="prop-value">{{ aroma.appearance }}</span>
       </div>
       <div v-if="aroma.storageSuggestion" class="aroma-prop aroma-storage-suggestion">
-        <span class="prop-name">Storage Suggestion</span>
+        <span class="prop-name">Storage suggestion</span>
         <span class="prop-value">{{ aroma.storageSuggestion }}</span>
       </div>
       <div class="aroma-prop aroma-blends-well-with">
-        <span class="prop-name">Blends Well With</span>
+        <span class="prop-name">Blends well with</span>
         <span class="prop-value">{{ aroma.blendsWellWith.join(", ") || missingMsg }}</span>
       </div>
       <div v-if="aroma.blendingSuggestion" class="aroma-prop aroma-blending-suggestion">
-        <span class="prop-name">Blending Suggestion</span>
+        <span class="prop-name">Blending suggestion</span>
         <span class="prop-value">{{ aroma.blendingSuggestion }}</span>
       </div>
       <div v-if="aroma.safetyConsiderations" class="aroma-prop aroma-safety-considerations">
-        <span class="prop-name">Safety Considerations</span>
+        <span class="prop-name">Safety considerations</span>
         <span class="prop-value">{{ aroma.safetyConsiderations }}</span>
       </div>
       <div v-if="aroma.recommendedAmount" class="aroma-prop aroma-recommended-amount">
-        <span class="prop-name">Recommended Amount</span>
+        <span class="prop-name">Recommended amount</span>
         <span class="prop-value">{{ aroma.recommendedAmount }}</span>
       </div>
       <div v-if="aroma.recommendedCombination.join(', ') !== ''" class="aroma-prop aroma-recommended-combination">
-        <span class="prop-name">Recommended Combination</span>
+        <span class="prop-name">Recommended combination</span>
         <span class="prop-value">{{ aroma.recommendedCombination.join(", ") }}</span>
       </div>
       <div v-if="aroma.dilutionNote" class="aroma-prop aroma-dilution-note">
-        <span class="prop-name">Dilution Note</span>
+        <span class="prop-name">Dilution note</span>
         <span class="prop-value">{{ aroma.dilutionNote }}</span>
       </div>
       <div v-if="aroma.popularity" class="aroma-prop aroma-popularity">
-        <span class="prop-name">popularity</span>
+        <span class="prop-name">Popularity</span>
         <span class="prop-value">{{ aroma.popularity }}</span>
       </div>
     </div>
@@ -108,6 +114,14 @@ export default {
     },
     missingMsg() {
       return "---!!-----MISSING-----!!---"
+    }
+  },
+  methods: {
+    onSaved() {
+      this.isEdit = false
+    },
+    onCanceled() {
+      this.isEdit = false
     }
   }
 }
