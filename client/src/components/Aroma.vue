@@ -117,11 +117,16 @@ export default {
     }
   },
   methods: {
-    onSaved() {
+    exitEdit() {
       this.isEdit = false
+      this.$router.push("#top")
+      this.$router.push("#" + this.aroma.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase())
+    },
+    onSaved() {
+      this.exitEdit()
     },
     onCanceled() {
-      this.isEdit = false
+      this.exitEdit()
     }
   }
 }
