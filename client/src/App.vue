@@ -160,6 +160,10 @@ fieldset {
   border: 1px solid #555;
   border-radius: 10px;
   display: inline-block;
+  margin-inline: 2px;
+  padding-block: .2em;
+  padding-inline: .7em;
+  width: calc(100vw - 5em);
 }
 legend {
   margin: 1em 0;
@@ -175,10 +179,16 @@ label {
 }
 textarea {
   min-height: 4em;
-  height: 8em;
   width: 90%;
   width: -moz-available;
   width: -webkit-fill-available;
+  max-width: 90%;
+}
+textarea.short {
+  min-height: 2em;
+}
+textarea.tall {
+  min-height: 8em;
 }
 input,
 textarea,
@@ -189,8 +199,36 @@ button {
   font-weight: 400;
   border: 1px solid #333;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: .2em;
   margin-bottom: 1em;
+}
+input,
+textarea,
+select {
+  min-width: 20em;
+}
+select {
+  background-color: rgba(231, 231, 231, 0.36);
+  overflow: auto;
+  vertical-align: top;
+}
+select:not([multiple]) {
+  padding-right: 1em;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+select[multiple] {
+  appearance: none;
+}
+select:not([multiple])::after {
+  grid-area: select;
+  justify-self: end;
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: rgba(231, 231, 231, 0.36);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
 textarea::placeholder,
 input::placeholder {
@@ -335,14 +373,22 @@ label {
 input[type="radio"],
 input[type="checkbox"] {
   visibility: hidden;
-  width: 1em;
+  width: .1em;
+  min-width: .1em;
+  margin-bottom: 2em;
+}
+span.clear::before,
+input[type="radio"] + label::before,
+input[type="checkbox"] + label::before {
+  content: "✓ ";
+  opacity: .18;
 }
 span.clear.checked::before,
 input[type="radio"]:checked + label::before,
 input[type="checkbox"]:checked + label::before {
   content: "✓ ";
-  margin-left: -1.2em;
   color: #29dc58;
+  opacity: 1;
 }
 .action.button.clear {
   margin-left: 0.9em;
