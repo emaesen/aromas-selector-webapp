@@ -27,6 +27,7 @@
             v-model="aroma.note"
             required
             multiple
+            size="3"
           >
             <option v-bind:value="'base'">base</option>
             <option v-bind:value="'middle'">middle</option>
@@ -41,6 +42,7 @@
             v-model="aroma.aromaFamilies"
             required
             multiple
+            :size="afExpand? aromaFamilies.length : 4"
           >
             <option v-for="aromaFamily in aromaFamilies"
               :key="aromaFamily"
@@ -49,6 +51,7 @@
               {{ aromaFamily }}
             </option>
           </select>
+          <div class="button action" @click="afExpand = !afExpand">{{ afExpand? "collapse" : "expand" }}</div>
           <div class="preview">{{ aroma.aromaFamilies }}</div>
         </div>
 
@@ -92,11 +95,12 @@
         </div>
 
         <div class="form-element">
-          <label class="form-label" for="aromaFamilies">Aroma properties</label>
+          <label class="form-label" for="aromaProperties">Aroma properties</label>
           <select
             id="aromaProperties" name="aromaProperties"
             v-model="aroma.aromaProperties"
             multiple
+            :size="apExpand? aromaProperties.length : 4"
           >
             <option v-for="aromaProperty in aromaProperties"
               :key="aromaProperty"
@@ -105,6 +109,7 @@
               {{ aromaProperty }}
             </option>
           </select>
+          <div class="button action" @click="apExpand = !apExpand">{{ apExpand? "collapse" : "expand" }}</div>
           <div class="preview">{{ aroma.aromaProperties }}</div>
         </div>
 
@@ -234,8 +239,10 @@ export default {
     return {
       errors: [],
       elements: [],
-      aromaProperties: ['analgesic', 'anti-bacterial', 'anti-fungal', 'anti-inflammatory', 'anti-microbial', 'anxiolytic', 'relaxant'],
-      aromaFamilies: ['animalic','anisic','balsamic','camphor','chamomile-like','citrus','conifer','earthy','floral','fruity','gourmand','green','herbal','lemon-like','medicinal','musky','resinous','rosy','soft','spicy','valerian-like','woody']
+      apExpand: false,
+      afExpand: false,
+      aromaProperties: ['anaesthetic', 'analgesic', 'anti-asthmatic', 'anti-bacterial', 'antibiotic', 'anti-depressant', 'anti-fungal', 'anti-inflammatory', 'anti-microbial', 'anti-oxidant', 'anti-parasitic', 'antiseptic', 'anti-spasmodic', 'anti-viral', 'anxiolytic', 'aphrodisiac', 'calming', 'carminative', 'cicatrisant', 'decongestant', 'deodorant', 'digestive', 'expectorant', 'hypertensive', 'immunity booster', 'insecticide', 'mucolytic', 'neuroprotective', 'relaxant', 'sedative', 'stimulant', 'stress reliever', 'tonic', 'uplifting'],
+      aromaFamilies: ['animalic','anisic','balsamic','camphor','chamomile-like','citrus','conifer','earthy','floral','fruity','gourmand','green','herbal','lemon-like','medicinal','musky','resinous','rosy','soft','spicy','valerian-like', 'vanilla-like', 'woody']
     };
   },
   setup(props, context) {
