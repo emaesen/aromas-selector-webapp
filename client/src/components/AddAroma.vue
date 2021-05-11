@@ -20,15 +20,6 @@
         />
       </div>
 
-      <div>
-        <label for="note">note</label>
-        <input
-          id="note"
-          name="note"
-          v-model="aroma.note"
-          type="text"
-        />
-      </div>
 
       <div>
         <button v-if="!isCreatePending" :disabled="!isValid" class="action button">
@@ -66,6 +57,7 @@ export default {
     function onSubmit() {
       if (this.validForm()) {
         aroma.value.save()
+        this.$router.push("#" + aroma.value.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase())
         reset()
       } else {
         return
