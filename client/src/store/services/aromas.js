@@ -16,6 +16,7 @@ class Aroma extends BaseModel {
       fixative: false,
       tenacious: false,
       diffusive: false,
+      aromaProperties: [],
       description: '',
       appearance: '',
       storageSuggestion: '',
