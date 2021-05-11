@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>Aromas</h1>
+    <h1 id="top">Aromas</h1>
     <div class="summary-list">
       <router-link
         v-for="aromaID in aromaSummaryList"

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header id="header">
+      <router-link :to="'#top'" class="float right">top</router-link>
       <img src="/img/icons/favicon-32x32.png" class="icon"/>
       <div class="header">Aromas Selector</div>
     </header>
