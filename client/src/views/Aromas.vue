@@ -11,11 +11,11 @@
       </router-link>
     </div>
 
+    <AddAroma/>
+
     <div class="full-list">
       <AromaList :aromas="aromas" />
     </div>
-
-    <AddAroma/>
 
   </main>
 </template>
