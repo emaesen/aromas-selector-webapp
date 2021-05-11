@@ -241,7 +241,7 @@ export default {
       elements: [],
       apExpand: false,
       afExpand: false,
-      aromaProperties: ['anaesthetic', 'analgesic', 'anti-asthmatic', 'anti-bacterial', 'antibiotic', 'anti-depressant', 'anti-fungal', 'anti-inflammatory', 'anti-microbial', 'anti-oxidant', 'anti-parasitic', 'antiseptic', 'anti-spasmodic', 'anti-viral', 'anxiolytic', 'aphrodisiac', 'calming', 'carminative', 'cicatrisant', 'decongestant', 'deodorant', 'digestive', 'expectorant', 'hypertensive', 'immunity booster', 'insecticide', 'mucolytic', 'neuroprotective', 'relaxant', 'sedative', 'stimulant', 'stress reliever', 'tonic', 'uplifting'],
+      aromaProperties: ['anaesthetic', 'analgesic', 'anti-asthmatic', 'anti-bacterial', 'antibiotic', 'anti-depressant', 'anti-fungal', 'anti-inflammatory', 'anti-microbial', 'anti-oxidant', 'anti-parasitic', 'antiseptic', 'anti-spasmodic', 'anti-viral', 'anxiolytic', 'aphrodisiac', 'astringent', 'calming', 'carminative', 'cephalic', 'cicatrisant', 'decongestant', 'deodorant', 'digestive', 'disinfectant', 'diuretic', 'expectorant', 'hypertensive', 'immunity booster', 'insecticide', 'mucolytic', 'nervine', 'neuroprotective', 'relaxant', 'sedative', 'stimulant', 'stress reliever', 'tonic', 'uplifting', 'vermifuge'],
       aromaFamilies: ['animalic','anisic','balsamic','camphor','chamomile-like','citrus','conifer','earthy','floral','fruity','gourmand','green','herbal','lemon-like','medicinal','musky','resinous','rosy','soft','spicy','valerian-like', 'vanilla-like', 'woody']
     };
   },
