@@ -1,5 +1,5 @@
 <template>
-  <div class="aroma" :id="aroma.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()">
+  <div class="aroma" :id="referenceID">
     <div v-if="isEdit">
       <EditAroma
         :aromaID="aroma._id"
@@ -16,7 +16,9 @@
         Edit
       </button>
       <div class="aroma-prop aroma-name">
-        <span class="prop-value">{{ aroma.name }}</span>
+        <router-link :to="'#' + referenceID">
+          <span class="prop-value">{{ aroma.name }}</span>
+        </router-link>
       </div>
       <div class="aroma-prop aroma-note">
         <span class="prop-name">Perfumery Note</span>
@@ -114,13 +116,16 @@ export default {
     },
     missingMsg() {
       return "---!!-----MISSING-----!!---"
+    },
+    referenceID() {
+      return this.aroma.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
     }
   },
   methods: {
     exitEdit() {
       this.isEdit = false
       this.$router.push("#top")
-      this.$router.push("#" + this.aroma.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase())
+      this.$router.push("#" + this.referenceID)
     },
     onSaved() {
       this.exitEdit()
