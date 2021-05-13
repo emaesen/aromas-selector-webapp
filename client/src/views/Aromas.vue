@@ -56,8 +56,13 @@ export default {
   },
   computed: {
     aromaSummaryList() {
-      const aromas = this.aromas.map(a => a.name.replace(/,/g, '').replace(/ /g,'-').toLowerCase())
+      const aromas = this.aromas.map(a => this.getReferenceId(a.name))
       return aromas
+    },
+  },
+  methods: {
+    getReferenceId(name) {
+      return name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
     }
   }
 }
