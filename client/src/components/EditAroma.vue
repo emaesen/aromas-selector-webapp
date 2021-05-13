@@ -216,6 +216,7 @@
         <button @click.stop.prevent="onCancel" class="action button">
           Cancel
         </button>
+        <span class="preview">{{ aroma.name }}</span>
       </div>
     </fieldset>
 
@@ -241,7 +242,7 @@ export default {
       elements: [],
       apExpand: false,
       afExpand: false,
-      aromaProperties: ['anaesthetic', 'analgesic', 'anti-asthmatic', 'anti-bacterial', 'antibiotic', 'anti-depressant', 'anti-fungal', 'anti-inflammatory', 'anti-microbial', 'anti-oxidant', 'anti-parasitic', 'antiseptic', 'anti-spasmodic', 'anti-viral', 'anxiolytic', 'aphrodisiac', 'astringent', 'calming', 'carminative', 'cephalic', 'cicatrisant', 'decongestant', 'deodorant', 'depurative', 'digestive', 'disinfectant', 'diuretic', 'expectorant', 'hypertensive', 'immunity booster', 'insecticide', 'mucolytic', 'nervine', 'neuroprotective', 'relaxant', 'sedative', 'stimulant', 'stress reliever', 'tonic', 'uplifting', 'vermifuge'],
+      aromaProperties: ['anaesthetic', 'analgesic', 'anti-asthmatic', 'anti-bacterial', 'antibiotic', 'anti-depressant', 'anti-fungal', 'anti-inflammatory', 'anti-microbial', 'anti-oxidant', 'anti-parasitic', 'antiseptic', 'anti-spasmodic', 'anti-viral', 'anxiolytic', 'aphrodisiac', 'astringent', 'calming', 'carminative', 'cephalic', 'cicatrisant', 'decongestant', 'deodorant', 'depurative', 'digestive', 'disinfectant', 'diuretic', 'expectorant', 'hypertensive', 'immunity booster', 'insecticide', 'mucolytic', 'nervine', 'neuroprotective', 'relaxant', 'sedative', 'stimulant', 'stress reliever', 'tonic', 'uplifting', 'vermifuge', 'vulnerary'],
       aromaFamilies: ['animalic','anisic','balsamic','camphor','chamomile-like','citrus','conifer','earthy','floral','fruity','gourmand','green','herbal','lemon-like','medicinal','musky','resinous','rosy','soft','spicy','valerian-like', 'vanilla-like', 'woody']
     };
   },
@@ -308,5 +309,8 @@ export default {
 .preview {
   margin-left: 1em;
   opacity: .7;
+}
+select[multiple] {
+  margin-right: .5em;
 }
 </style>
