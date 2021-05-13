@@ -207,6 +207,7 @@ input,
 textarea,
 select {
   min-width: 20em;
+  cursor: default;
 }
 select {
   background-color: rgba(231, 231, 231, 0.36);
