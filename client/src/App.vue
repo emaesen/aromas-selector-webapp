@@ -4,7 +4,13 @@
       <router-link :to="'#top'" class="float right">top</router-link>
       <img src="/img/icons/favicon-32x32.png" class="icon"/>
       <div class="header">Aromas Selector</div>
+      <nav>
+        <router-link to="/aromas/" class="">Aromas</router-link>
+        |
+        <router-link to="/aroma-groups/" class="">Aroma Groups</router-link>
+      </nav>
     </header>
+
 
     <main id="main">
       <router-view/>
@@ -313,6 +319,10 @@ a,
   letter-spacing: 1px;
   color: #bdb1db;
   font-style: normal;
+}
+a.router-link-active {
+  cursor: default;
+  color: inherit;
 }
 .action.button {
   vertical-align: middle;

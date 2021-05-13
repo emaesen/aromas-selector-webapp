@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import Aromas from '../views/Aromas'
+import AromaGroups from '../views/AromaGroups'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,11 @@ const routes = [
     path: "/aromas",
     name: "Aromas",
     component: Aromas
+  },
+  {
+    path: "/aroma-groups",
+    name: "AromaGroups",
+    component: AromaGroups
   }
 ]
 
