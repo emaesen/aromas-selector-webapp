@@ -19,7 +19,7 @@
         <span class="prop-value">{{ aroma.name }}</span>
       </div>
       <div class="aroma-prop aroma-note">
-        <span class="prop-name">Note</span>
+        <span class="prop-name">Perfumery Note</span>
         <span class="prop-value">{{ aroma.note.join(", ") || missingMsg }}</span>
       </div>
       <div class="aroma-prop aroma-families">
