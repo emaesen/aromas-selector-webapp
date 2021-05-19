@@ -1,28 +1,60 @@
 <template>
-  <main>
+  <div>
     <h1 id="top">Aroma Groups</h1>
 
     <div class="note top">
-      {{ aromasTopList }}
+      <div
+        v-for="aroma in aromasTopList"
+        :key="aroma.name"
+        class="action button"
+        @click="()=>onClickAroma(aroma)"
+        :class="{highlight: aroma.highlight}"
+      >
+        {{ aroma.name }}
+      </div>
     </div>
 
     <div class="note middle-top">
-      {{ aromasMiddleTopList }}
+      <div
+        v-for="aroma in aromasMiddleTopList"
+        :key="aroma.name"
+        class="action button"
+      >
+        {{ aroma.name }}
+      </div>
     </div>
 
     <div class="note middle">
-      {{ aromasMiddleList }}
+      <div
+        v-for="aroma in aromasMiddleList"
+        :key="aroma.name"
+        class="action button"
+      >
+        {{ aroma.name }}
+      </div>
     </div>
 
     <div class="note base-middle">
-      {{ aromasBaseMiddleList }}
+      <div
+        v-for="aroma in aromasBaseMiddleList"
+        :key="aroma.name"
+        class="action button"
+      >
+        {{ aroma.name }}
+      </div>
     </div>
 
     <div class="note base">
-      {{ aromasBaseList }}
+      <div
+        v-for="aroma in aromasBaseList"
+        :key="aroma.name"
+        class="action button"
+      >
+        {{ aroma.name }}
+      </div>
     </div>
 
-  </main>
+  </div>
 </template>
 
 <script>
@@ -58,40 +90,47 @@ export default {
     }
   },
   computed: {
+    aromasList() {
+      return this.aromas
+        .map(a => {
+          return a
+        })
+    },
     aromasBaseList() {
-      const aromas = this.aromas
+      const aromas = this.aromasList
         .filter(a => a.note.includes('base') && !a.note.includes('middle'))
-        .map(a => a.name)
       return aromas
     },
     aromasBaseMiddleList() {
-      const aromas = this.aromas
+      const aromas = this.aromasList
         .filter(a => a.note.includes('base') && a.note.includes('middle'))
-        .map(a => a.name)
       return aromas
     },
     aromasMiddleList() {
-      const aromas = this.aromas
+      const aromas = this.aromasList
         .filter(a => !a.note.includes('base') && a.note.includes('middle') && !a.note.includes('top'))
-        .map(a => a.name)
       return aromas
     },
     aromasMiddleTopList() {
-      const aromas = this.aromas
+      const aromas = this.aromasList
         .filter(a => a.note.includes('middle') && a.note.includes('top'))
-        .map(a => a.name)
       return aromas
     },
     aromasTopList() {
-      const aromas = this.aromas
+      const aromas = this.aromasList
         .filter(a => !a.note.includes('middle') && a.note.includes('top'))
-        .map(a => a.name)
       return aromas
     },
   },
   methods: {
     getReferenceId(name) {
       return name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
+    },
+    onClickAroma(aroma) {
+      // TODO: 
+      // Add `reference` property: a reference name that can be used to cross link
+      // and should also be used in blendsWellWith and recommendedCombination
+      console.log("Associate with ", aroma.name)
     }
   }
 }
@@ -100,5 +139,8 @@ export default {
 <style scoped>
 .note {
   margin-bottom: 1em;
+}
+.highlight {
+  color: #29dc58;
 }
 </style>
