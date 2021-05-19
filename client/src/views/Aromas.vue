@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div>
     <h1 id="top">Aromas</h1>
     <div class="summary-list">
       <router-link
@@ -17,7 +17,7 @@
       <AromaList :aromas="aromas" />
     </div>
 
-  </main>
+  </div>
 </template>
 
 <script>
