@@ -8,7 +8,7 @@
         :key="aroma.name"
         class="action button"
         @click="()=>onClickAroma(aroma)"
-        :class="{highlight: aroma.highlight}"
+        :class="aroma.highlightClass"
       >
         {{ aroma.name }}
       </div>
@@ -19,6 +19,8 @@
         v-for="aroma in aromasMiddleTopList"
         :key="aroma.name"
         class="action button"
+        @click="()=>onClickAroma(aroma)"
+        :class="aroma.highlightClass"
       >
         {{ aroma.name }}
       </div>
@@ -29,6 +31,8 @@
         v-for="aroma in aromasMiddleList"
         :key="aroma.name"
         class="action button"
+        @click="()=>onClickAroma(aroma)"
+        :class="aroma.highlightClass"
       >
         {{ aroma.name }}
       </div>
@@ -39,6 +43,8 @@
         v-for="aroma in aromasBaseMiddleList"
         :key="aroma.name"
         class="action button"
+        @click="()=>onClickAroma(aroma)"
+        :class="aroma.highlightClass"
       >
         {{ aroma.name }}
       </div>
@@ -49,6 +55,8 @@
         v-for="aroma in aromasBaseList"
         :key="aroma.name"
         class="action button"
+        @click="()=>onClickAroma(aroma)"
+        :class="aroma.highlightClass"
       >
         {{ aroma.name }}
       </div>
@@ -67,6 +75,14 @@ export default {
   name: 'AromaGroups',
   components: {
 
+  },
+  data() {
+    return {
+      association: {
+        name: "",
+        blendsWellWith: []
+      }
+    };
   },
   setup(props, context) {
     const { Aroma } = context.root.$FeathersVuex.api
@@ -92,9 +108,7 @@ export default {
   computed: {
     aromasList() {
       return this.aromas
-        .map(a => {
-          return a
-        })
+        .map(this.associationMap)
     },
     aromasBaseList() {
       const aromas = this.aromasList
@@ -127,11 +141,25 @@ export default {
       return name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
     },
     onClickAroma(aroma) {
-      // TODO: 
-      // Add `reference` property: a reference name that can be used to cross link
-      // and should also be used in blendsWellWith and recommendedCombination
-      console.log("Associate with ", aroma.name)
-    }
+      // Highlight clicked aroma plus all associated aromas
+      // in blendsWellWith and recommendedCombination
+      this.association.name = aroma.name
+      this.association.reference = aroma.name.split(" - ")[0]
+      this.association.blendsWellWith = aroma.blendsWellWith
+      console.log({association: this.association})
+    },
+    associationMap(aroma) {
+      //console.log("in associationMap ", aroma.name)
+      let highlightClass = ""
+      if (aroma.name === this.association.name) {
+        highlightClass = "highlight1"
+      }
+      if (this.association.blendsWellWith.includes(aroma.name) || aroma.blendsWellWith.includes(this.association.reference)) {
+        highlightClass = "highlight2"
+      }
+      aroma.highlightClass = highlightClass
+      return aroma
+    },
   }
 }
 </script>
@@ -140,7 +168,10 @@ export default {
 .note {
   margin-bottom: 1em;
 }
-.highlight {
+.highlight1 {
+  color: #f7f335;
+}
+.highlight2 {
   color: #29dc58;
 }
 </style>
