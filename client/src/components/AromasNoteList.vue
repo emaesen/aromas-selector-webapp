@@ -73,10 +73,12 @@ export default {
 }
 .highlight1 {
   color: #f7f335;
+  border-color: #f7f335;
   font-style: italic;
 }
 .highlight2 {
   color: #bdf735;
+  border-color: #bdf735;
   font-style: italic;
 }
 .highlight3 {
