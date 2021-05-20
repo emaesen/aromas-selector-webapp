@@ -8,7 +8,7 @@
       <div
         v-for="aroma in aromasList"
         :key="aroma.name"
-        class="action button"
+        class="action button aroma-name"
         @click="()=>onClickAroma(aroma)"
         :class="aroma.highlightClass"
       >
@@ -57,6 +57,9 @@ export default {
   text-align: center;
   min-width: 7em;
   font-style: italic;
+}
+.aroma-name {
+  transition: color 1s ;
 }
 .highlight1 {
   color: #f7f335;

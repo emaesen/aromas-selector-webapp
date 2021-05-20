@@ -121,7 +121,7 @@ export default {
       console.log({association: this.association})
     },
     associationMap(aroma) {
-      console.log("in associationMap ", aroma.name)
+      //console.log("in associationMap ", aroma.name)
       let highlightClass = ""
       if (aroma.name === this.association.name) {
         highlightClass = "highlight1"
