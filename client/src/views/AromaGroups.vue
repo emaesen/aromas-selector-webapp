@@ -2,65 +2,35 @@
   <div>
     <h1 id="top">Aroma Groups</h1>
 
-    <div class="note top">
-      <div
-        v-for="aroma in aromasTopList"
-        :key="aroma.name"
-        class="action button"
-        @click="()=>onClickAroma(aroma)"
-        :class="aroma.highlightClass"
-      >
-        {{ aroma.name }}
-      </div>
-    </div>
+    <AromasNoteList
+      class="note top"
+      :aromasList="aromasTopList"
+      @associate-aroma="onAssociateAroma"
+    />
 
-    <div class="note middle-top">
-      <div
-        v-for="aroma in aromasMiddleTopList"
-        :key="aroma.name"
-        class="action button"
-        @click="()=>onClickAroma(aroma)"
-        :class="aroma.highlightClass"
-      >
-        {{ aroma.name }}
-      </div>
-    </div>
+    <AromasNoteList
+      class="note middle-top"
+      :aromasList="aromasMiddleTopList"
+      @associate-aroma="onAssociateAroma"
+    />
 
-    <div class="note middle">
-      <div
-        v-for="aroma in aromasMiddleList"
-        :key="aroma.name"
-        class="action button"
-        @click="()=>onClickAroma(aroma)"
-        :class="aroma.highlightClass"
-      >
-        {{ aroma.name }}
-      </div>
-    </div>
+    <AromasNoteList
+      class="note middle"
+      :aromasList="aromasMiddleList"
+      @associate-aroma="onAssociateAroma"
+    />
 
-    <div class="note base-middle">
-      <div
-        v-for="aroma in aromasBaseMiddleList"
-        :key="aroma.name"
-        class="action button"
-        @click="()=>onClickAroma(aroma)"
-        :class="aroma.highlightClass"
-      >
-        {{ aroma.name }}
-      </div>
-    </div>
+    <AromasNoteList
+      class="note base-middle"
+      :aromasList="aromasBaseMiddleList"
+      @associate-aroma="onAssociateAroma"
+    />
 
-    <div class="note base">
-      <div
-        v-for="aroma in aromasBaseList"
-        :key="aroma.name"
-        class="action button"
-        @click="()=>onClickAroma(aroma)"
-        :class="aroma.highlightClass"
-      >
-        {{ aroma.name }}
-      </div>
-    </div>
+    <AromasNoteList
+      class="note base"
+      :aromasList="aromasBaseList"
+      @associate-aroma="onAssociateAroma"
+    />
 
   </div>
 </template>
@@ -69,12 +39,12 @@
 import { useFind } from 'feathers-vuex'
 import { computed } from '@vue/composition-api'
 
-
+import AromasNoteList from '@/components/AromasNoteList'
 
 export default {
   name: 'AromaGroups',
   components: {
-
+    AromasNoteList,
   },
   data() {
     return {
@@ -140,7 +110,7 @@ export default {
     getReferenceId(name) {
       return name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
     },
-    onClickAroma(aroma) {
+    onAssociateAroma(aroma) {
       // Highlight clicked aroma plus all associated aromas
       // in blendsWellWith and recommendedCombination
       this.association.name = aroma.name
@@ -149,7 +119,7 @@ export default {
       console.log({association: this.association})
     },
     associationMap(aroma) {
-      //console.log("in associationMap ", aroma.name)
+      console.log("in associationMap ", aroma.name)
       let highlightClass = ""
       if (aroma.name === this.association.name) {
         highlightClass = "highlight1"
@@ -167,11 +137,5 @@ export default {
 <style scoped>
 .note {
   margin-bottom: 1em;
-}
-.highlight1 {
-  color: #f7f335;
-}
-.highlight2 {
-  color: #29dc58;
 }
 </style>
