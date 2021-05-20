@@ -12,7 +12,10 @@
         @click="()=>onClickAroma(aroma)"
         :class="aroma.highlightClass"
       >
-        {{ aroma.name }}
+        {{ aroma.name }} 
+        <span :title="aroma.recommendedAmount" class="aroma-recommendedAmount">{{ aroma.recommendedAmount ? "☣" : "" }}</span>
+        <span class="aroma-properties">{{ properties(aroma) }}</span>
+        <span :title="aroma.popularity" class="aroma-popularity">{{ aroma.popularity ? "♥" : ""}}</span>
       </div>
     </div>
   </div>
@@ -40,6 +43,13 @@ export default {
     onClickAroma(aroma) {
       this.$emit("associate-aroma", aroma)
     },
+    properties(aroma) {
+      let props = ""
+      props += aroma.fixative? "F": ""
+      props += aroma.diffusive? "D": ""
+      props += aroma.tenacious? "T": ""
+      return props? "("+props+")": ""
+    }
   }
 }
 </script>
@@ -63,8 +73,27 @@ export default {
 }
 .highlight1 {
   color: #f7f335;
+  font-style: italic;
 }
 .highlight2 {
+  color: #bdf735;
+  font-style: italic;
+}
+.highlight3 {
   color: #29dc58;
+}
+.aroma-properties {
+  color: rgba(204, 204, 204, 0.541);
+  font-size: 81%;
+}
+.aroma-popularity {
+  color: rgb(204, 164, 255);
+  font-size: 117%;
+}
+.aroma-recommendedAmount {
+  color: rgb(255, 194, 194);
+}
+.action.button {
+  margin-left: 5px;
 }
 </style>
