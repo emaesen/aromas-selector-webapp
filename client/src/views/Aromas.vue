@@ -24,8 +24,8 @@
 import { useFind } from 'feathers-vuex'
 import { computed } from '@vue/composition-api'
 
-import AromaList from '../components/Aromas'
-import AddAroma from '../components/AddAroma'
+import AromaList from '@/components/Aromas'
+import AddAroma from '@/components/AddAroma'
 
 export default {
   name: 'Aromas',
