@@ -134,7 +134,7 @@ export default {
       if (this.association.blendsWellWith.includes(aroma.name) || this.association.blendsWellWith.includes(this.getAssociationReference(aroma.name)) || aroma.blendsWellWith.includes(this.association.reference)) {
         highlightClass = "highlight3"
       }
-      if (this.association.recommendedCombination.includes(aroma.name) || this.association.recommendedCombination.includes(this.getAssociationReference(aroma.name)) || aroma.recommendedCombination.includes(this.association.reference)) {
+      if (this.association.recommendedCombination.includes(aroma.name) || this.association.recommendedCombination.includes(this.getAssociationReference(aroma.name))) {
         highlightClass = "highlight2"
       }
       aroma.highlightClass = highlightClass
