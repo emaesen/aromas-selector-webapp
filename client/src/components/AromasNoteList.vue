@@ -46,16 +46,17 @@ export default {
 
 <style lang="less" scoped>
 .note {
-  border: 1px solid rgba(204, 204, 204, 0.18);
-  background-color: rgb(14, 14, 19);
+  border: 5px solid rgb(6, 4, 20);
+  background-color: rgb(32, 32, 44);
   border-radius: 5px;
-  padding: 5px 0;
+  padding: 3px 0;
   display: flex;
   align-items: center;
 }
 .note-name {
   text-align: center;
   min-width: 7em;
+  font-style: italic;
 }
 .highlight1 {
   color: #f7f335;
