@@ -112,11 +112,14 @@ export default {
     getReferenceId(name) {
       return name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
     },
+    getAssociationReference(name) {
+      return name.split(" - ")[0].split(" ")[0]
+    },
     onAssociateAroma(aroma) {
       // Highlight clicked aroma plus all associated aromas
       // in blendsWellWith and recommendedCombination
       this.association.name = aroma.name
-      this.association.reference = aroma.name.split(" - ")[0]
+      this.association.reference = this.getAssociationReference(aroma.name)
       this.association.blendsWellWith = aroma.blendsWellWith
       console.log({association: this.association})
     },
@@ -126,7 +129,7 @@ export default {
       if (aroma.name === this.association.name) {
         highlightClass = "highlight1"
       }
-      if (this.association.blendsWellWith.includes(aroma.name) || aroma.blendsWellWith.includes(this.association.reference)) {
+      if (this.association.blendsWellWith.includes(this.getAssociationReference(aroma.name)) || aroma.blendsWellWith.includes(this.association.reference)) {
         highlightClass = "highlight2"
       }
       aroma.highlightClass = highlightClass
