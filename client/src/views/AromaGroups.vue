@@ -2,35 +2,37 @@
   <div>
     <h1 id="top">Aroma Groups</h1>
 
-    <AromasNoteList
-      class="note top"
-      :aromasList="aromasTopList"
-      @associate-aroma="onAssociateAroma"
-    />
+    <div class="aroma-notes">
+      <AromasNoteList
+        note="top"
+        :aromasList="aromasTopList"
+        @associate-aroma="onAssociateAroma"
+      />
 
-    <AromasNoteList
-      class="note middle-top"
-      :aromasList="aromasMiddleTopList"
-      @associate-aroma="onAssociateAroma"
-    />
+      <AromasNoteList
+        note="middle-top"
+        :aromasList="aromasMiddleTopList"
+        @associate-aroma="onAssociateAroma"
+      />
 
-    <AromasNoteList
-      class="note middle"
-      :aromasList="aromasMiddleList"
-      @associate-aroma="onAssociateAroma"
-    />
+      <AromasNoteList
+        note="middle"
+        :aromasList="aromasMiddleList"
+        @associate-aroma="onAssociateAroma"
+      />
 
-    <AromasNoteList
-      class="note base-middle"
-      :aromasList="aromasBaseMiddleList"
-      @associate-aroma="onAssociateAroma"
-    />
+      <AromasNoteList
+        note="base-middle"
+        :aromasList="aromasBaseMiddleList"
+        @associate-aroma="onAssociateAroma"
+      />
 
-    <AromasNoteList
-      class="note base"
-      :aromasList="aromasBaseList"
-      @associate-aroma="onAssociateAroma"
-    />
+      <AromasNoteList
+        note="base"
+        :aromasList="aromasBaseList"
+        @associate-aroma="onAssociateAroma"
+      />
+    </div>
 
   </div>
 </template>
