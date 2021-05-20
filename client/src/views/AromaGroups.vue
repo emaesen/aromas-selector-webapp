@@ -52,7 +52,8 @@ export default {
     return {
       association: {
         name: "",
-        blendsWellWith: []
+        recommendedCombination: [],
+        blendsWellWith: [],
       }
     };
   },
@@ -121,6 +122,7 @@ export default {
       this.association.name = aroma.name
       this.association.reference = this.getAssociationReference(aroma.name)
       this.association.blendsWellWith = aroma.blendsWellWith
+      this.association.recommendedCombination = aroma.recommendedCombination.flat()
       console.log({association: this.association})
     },
     associationMap(aroma) {
@@ -129,7 +131,10 @@ export default {
       if (aroma.name === this.association.name) {
         highlightClass = "highlight1"
       }
-      if (this.association.blendsWellWith.includes(this.getAssociationReference(aroma.name)) || aroma.blendsWellWith.includes(this.association.reference)) {
+      if (this.association.blendsWellWith.includes(aroma.name) || this.association.blendsWellWith.includes(this.getAssociationReference(aroma.name)) || aroma.blendsWellWith.includes(this.association.reference)) {
+        highlightClass = "highlight3"
+      }
+      if (this.association.recommendedCombination.includes(aroma.name) || this.association.recommendedCombination.includes(this.getAssociationReference(aroma.name)) || aroma.recommendedCombination.includes(this.association.reference)) {
         highlightClass = "highlight2"
       }
       aroma.highlightClass = highlightClass
