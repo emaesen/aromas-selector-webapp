@@ -204,7 +204,7 @@ export default {
   .highlight-off {
     font-weight: 400;
     font-size: 81%;
-    opacity: .6;
+    opacity: .45;
   }
   .highlight1 {
     color: #f7f335;
