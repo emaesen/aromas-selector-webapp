@@ -93,7 +93,7 @@ export default {
   font-size: 117%;
 }
 .aroma-recommendedAmount {
-  color: rgb(255, 194, 194);
+  color: rgba(255, 117, 117, 0.507);
 }
 .action.button {
   margin-left: 5px;
