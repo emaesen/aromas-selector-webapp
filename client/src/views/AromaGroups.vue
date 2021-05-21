@@ -1,8 +1,15 @@
 <template>
   <div>
+
     <h1 id="top">Aroma Groups</h1>
 
     <div class="aroma-notes">
+
+      <div class="action button reset"
+        @click="resetAssociation"
+        v-if="association.name"
+      >reset</div>
+
       <AromasNoteList
         note="top"
         :aromasList="aromasTopList"
@@ -51,7 +58,7 @@
           ...name...
         </dt>
         <dd class="def">Blends well with primary</dd>
-        <dt class="action button">
+        <dt class="action button highlight-off">
           ...name...
         </dt>
         <dd class="def">Has no blending recommendation</dd>
@@ -77,6 +84,7 @@ export default {
     return {
       association: {
         name: "",
+        reference: "",
         recommendedCombination: [],
         blendsWellWith: [],
       },
@@ -157,22 +165,30 @@ export default {
     },
     associationMap(aroma) {
       //console.log("in associationMap ", aroma.name)
-      let highlightClass = ""
-      if (aroma.name === this.association.name) {
-        highlightClass = "highlight1"
-      }
-      if (this.association.blendsWellWith.includes(aroma.name) || this.association.blendsWellWith.includes(this.getAssociationReference(aroma.name)) || aroma.blendsWellWith.includes(this.association.reference)) {
-        highlightClass = "highlight4"
-      }
-      if (aroma.recommendedCombination.flat().includes(this.association.reference) ) {
-        highlightClass = "highlight3"
-      }
-      if (this.association.recommendedCombination.includes(aroma.name) || this.association.recommendedCombination.includes(this.getAssociationReference(aroma.name))) {
-        highlightClass = "highlight2"
+      let highlightClass = this.association.name ? "highlight-off" : ""
+      if (this.association.name) {
+        if (aroma.name === this.association.name) {
+          highlightClass = "highlight1"
+        }
+        if (this.association.blendsWellWith.includes(aroma.name) || this.association.blendsWellWith.includes(this.getAssociationReference(aroma.name)) || aroma.blendsWellWith.includes(this.association.reference)) {
+          highlightClass = "highlight4"
+        }
+        if (aroma.recommendedCombination.flat().includes(this.association.reference) ) {
+          highlightClass = "highlight3"
+        }
+        if (this.association.recommendedCombination.includes(aroma.name) || this.association.recommendedCombination.includes(this.getAssociationReference(aroma.name))) {
+          highlightClass = "highlight2"
+        }
       }
       aroma.highlightClass = highlightClass
       return aroma
     },
+    resetAssociation() {
+      this.association.name = ""
+      this.association.reference = ""
+      this.association.recommendedCombination = []
+      this.association.blendsWellWith = []
+    }
   }
 }
 </script>
@@ -182,7 +198,14 @@ export default {
   .note {
     margin-bottom: 1em;
   }
-
+  .aroma-name {
+    transition: all 1s ;
+  }
+  .highlight-off {
+    font-weight: 400;
+    font-size: 81%;
+    opacity: .6;
+  }
   .highlight1 {
     color: #f7f335;
     border-color: #f7f335;
@@ -208,6 +231,11 @@ export default {
     padding: 3px 0;
     margin: 7px 1em;
     font-style: italic;
+  }
+  .action.button.reset {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 </style>
