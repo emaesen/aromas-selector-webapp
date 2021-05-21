@@ -69,9 +69,6 @@ export default {
   min-width: 7em;
   font-style: italic;
 }
-.aroma-name {
-  transition: color 1s ;
-}
 .aroma-properties {
   color: rgba(204, 204, 204, 0.541);
   font-size: 81%;
