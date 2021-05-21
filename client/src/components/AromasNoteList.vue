@@ -15,7 +15,8 @@
         {{ aroma.name }} 
         <span :title="aroma.recommendedAmount" class="aroma-recommendedAmount">{{ aroma.recommendedAmount ? "☣" : "" }}</span>
         <span class="aroma-properties">{{ properties(aroma) }}</span>
-        <span :title="aroma.popularity" class="aroma-popularity">{{ aroma.popularity ? "♥" : ""}}</span>
+        <span title="aphrodisiac" class="aroma-aphrodisiac">{{ aroma.aromaProperties.includes('aphrodisiac') ? "♥" : ""}}</span>
+        <span :title="aroma.popularity" class="aroma-popularity">{{ aroma.popularity ? "𝒫" : ""}}</span>
       </div>
     </div>
   </div>
@@ -87,6 +88,10 @@ export default {
 .aroma-properties {
   color: rgba(204, 204, 204, 0.541);
   font-size: 81%;
+}
+.aroma-aphrodisiac {
+  color: rgb(202, 122, 255);
+  font-size: 117%;
 }
 .aroma-popularity {
   color: rgb(204, 164, 255);
