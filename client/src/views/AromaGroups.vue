@@ -32,6 +32,31 @@
         :aromasList="aromasBaseList"
         @associate-aroma="onAssociateAroma"
       />
+
+      <h2>Legenda</h2>
+      <dl class="legenda">
+        <dt class="action button highlight1">
+          ...name...
+        </dt> 
+        <dd class="def">Primary selection</dd>
+        <dt class="action button highlight2">
+          ...name...
+        </dt>
+        <dd class="def">Recommended blend - by primary</dd>
+        <dt class="action button highlight3">
+          ...name...
+        </dt>
+        <dd class="def">Recommended blend - by current</dd>
+        <dt class="action button highlight4">
+          ...name...
+        </dt>
+        <dd class="def">Blends well with primary</dd>
+        <dt class="action button">
+          ...name...
+        </dt>
+        <dd class="def">Has no blending recommendation</dd>
+      </dl>
+
     </div>
 
   </div>
@@ -152,8 +177,37 @@ export default {
 }
 </script>
 
-<style scoped>
-.note {
-  margin-bottom: 1em;
+<style lang="less">
+.aroma-notes {
+  .note {
+    margin-bottom: 1em;
+  }
+
+  .highlight1 {
+    color: #f7f335;
+    border-color: #f7f335;
+    font-style: italic;
+  }
+  .highlight2 {
+    color: #bdf735;
+    border-color: #bdf735;
+    font-style: italic;
+  }
+  .highlight3 {
+    color: #bdf735;
+    font-style: italic;
+  }
+  .highlight4 {
+    color: #29dc58;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: 6em auto;
+  }
+  dd {
+    padding: 3px 0;
+    margin: 7px 1em;
+    font-style: italic;
+  }
 }
 </style>
