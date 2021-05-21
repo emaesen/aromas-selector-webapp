@@ -72,23 +72,6 @@ export default {
 .aroma-name {
   transition: color 1s ;
 }
-.highlight1 {
-  color: #f7f335;
-  border-color: #f7f335;
-  font-style: italic;
-}
-.highlight2 {
-  color: #bdf735;
-  border-color: #bdf735;
-  font-style: italic;
-}
-.highlight3 {
-  color: #bdf735;
-  font-style: italic;
-}
-.highlight4 {
-  color: #29dc58;
-}
 .aroma-properties {
   color: rgba(204, 204, 204, 0.541);
   font-size: 81%;
