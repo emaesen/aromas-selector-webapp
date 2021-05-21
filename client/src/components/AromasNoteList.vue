@@ -9,7 +9,7 @@
         v-for="aroma in aromasList"
         :key="aroma.name"
         class="action button aroma-name"
-        @click="()=>onClickAroma(aroma)"
+        @click="(evt)=>onClickAroma(aroma,evt)"
         :class="aroma.highlightClass"
       >
         {{ aroma.name }} 
@@ -41,7 +41,9 @@ export default {
   computed: {
   },
   methods: {
-    onClickAroma(aroma) {
+    onClickAroma(aroma,evt) {
+      evt.target.blur()
+      window.getSelection().removeAllRanges()
       this.$emit("associate-aroma", aroma)
     },
     properties(aroma) {
