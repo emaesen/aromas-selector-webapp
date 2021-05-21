@@ -14,30 +14,35 @@
         note="top"
         :aromasList="aromasTopList"
         @associate-aroma="onAssociateAroma"
+        @preview-aroma="onPreviewAroma"
       />
 
       <AromasNoteList
         note="middle-top"
         :aromasList="aromasMiddleTopList"
         @associate-aroma="onAssociateAroma"
+        @preview-aroma="onPreviewAroma"
       />
 
       <AromasNoteList
         note="middle"
         :aromasList="aromasMiddleList"
         @associate-aroma="onAssociateAroma"
+        @preview-aroma="onPreviewAroma"
       />
 
       <AromasNoteList
         note="base-middle"
         :aromasList="aromasBaseMiddleList"
         @associate-aroma="onAssociateAroma"
+        @preview-aroma="onPreviewAroma"
       />
 
       <AromasNoteList
         note="base"
         :aromasList="aromasBaseList"
         @associate-aroma="onAssociateAroma"
+        @preview-aroma="onPreviewAroma"
       />
 
       <h2>Legenda</h2>
@@ -66,6 +71,11 @@
 
     </div>
 
+    <div class="aroma-preview" v-if="previewAroma">
+      <aroma
+        :aroma="previewAroma"
+      />
+    </div>
   </div>
 </template>
 
@@ -74,11 +84,13 @@ import { useFind } from 'feathers-vuex'
 import { computed } from '@vue/composition-api'
 
 import AromasNoteList from '@/components/AromasNoteList'
+import Aroma from '@/components/Aroma.vue'
 
 export default {
   name: 'AromaGroups',
   components: {
     AromasNoteList,
+    Aroma,
   },
   data() {
     return {
@@ -88,7 +100,8 @@ export default {
         recommendedCombination: [],
         blendsWellWith: [],
       },
-      nameRefExceptions:  ["Clary Sage", "Orange Blossom", "Balsam of Peru"]
+      nameRefExceptions:  ["Clary Sage", "Orange Blossom", "Balsam of Peru"],
+      previewAroma: null,
     };
   },
   setup(props, context) {
@@ -162,6 +175,9 @@ export default {
       this.association.blendsWellWith = aroma.blendsWellWith
       this.association.recommendedCombination = aroma.recommendedCombination.flat()
       console.log({association: this.association})
+    },
+    onPreviewAroma(aroma) {
+      this.previewAroma = aroma
     },
     associationMap(aroma) {
       //console.log("in associationMap ", aroma.name)

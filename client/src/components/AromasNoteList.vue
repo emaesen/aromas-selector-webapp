@@ -12,11 +12,17 @@
         @click="(evt)=>onClickAroma(aroma,evt)"
         :class="aroma.highlightClass"
       >
+        <span class="aroma-preview-button"
+          title="click to preview aroma below"
+          @click.stop="(evt)=>onPreviewAroma(aroma,evt)"
+        >☟</span>
         {{ aroma.name }} 
-        <span :title="aroma.recommendedAmount" class="aroma-recommendedAmount">{{ aroma.recommendedAmount ? "☣" : "" }}</span>
-        <span class="aroma-properties">{{ properties(aroma) }}</span>
-        <span title="aphrodisiac" class="aroma-aphrodisiac">{{ aroma.aromaProperties.includes('aphrodisiac') ? "♥" : ""}}</span>
-        <span :title="aroma.popularity" class="aroma-popularity">{{ aroma.popularity ? "𝒫" : ""}}</span>
+        <div class="aroma-meta">
+          <span :title="aroma.recommendedAmount" class="aroma-recommendedAmount">{{ aroma.recommendedAmount ? "☣" : "" }}</span>
+          <span class="aroma-properties">{{ properties(aroma) }}</span>
+          <span title="aphrodisiac" class="aroma-aphrodisiac">{{ aroma.aromaProperties.includes('aphrodisiac') ? "♥" : ""}}</span>
+          <span :title="aroma.popularity" class="aroma-popularity">{{ aroma.popularity ? "𝒫" : ""}}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -45,6 +51,10 @@ export default {
       evt.target.blur()
       window.getSelection().removeAllRanges()
       this.$emit("associate-aroma", aroma)
+      this.$emit("preview-aroma", aroma)
+    },
+    onPreviewAroma(aroma) {
+      this.$emit("preview-aroma", aroma)
     },
     properties(aroma) {
       let props = ""
@@ -70,6 +80,22 @@ export default {
   text-align: center;
   min-width: 7em;
   font-style: italic;
+}
+.aroma-preview-button {
+  color: rgb(204, 204, 204);
+  border: 1px solid rgba(204, 204, 204, .45);
+  border-radius: 3px;
+  opacity: .54;
+  font-size: 117%;
+  padding: 0 5px;
+  margin: -3px;
+  position: relative;
+  top: 1px;
+  font-style: normal;
+}
+.aroma-meta {
+  display: inline-block;
+  font-style: normal;
 }
 .aroma-properties {
   color: rgba(204, 204, 204, 0.541);
