@@ -11,7 +11,7 @@
 <script>
 import { watch, onMounted } from '@vue/composition-api'
 
-import Aroma from './Aroma.vue'
+import Aroma from '@/components/Aroma.vue'
 
 export default {
   name: 'Aromas',
