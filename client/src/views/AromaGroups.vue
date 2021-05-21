@@ -54,7 +54,8 @@ export default {
         name: "",
         recommendedCombination: [],
         blendsWellWith: [],
-      }
+      },
+      nameRefExceptions:  ["Clary Sage", "Orange Blossom", "Balsam of Peru"]
     };
   },
   setup(props, context) {
@@ -114,7 +115,11 @@ export default {
       return name.replace(/,/g, '').replace(/ /g,'-').toLowerCase()
     },
     getAssociationReference(name) {
-      return name.split(" - ")[0].split(" ")[0]
+      let ref = name.split(" - ")[0].split(" ")[0]
+      // exceptions
+      const exceptions = this.nameRefExceptions
+      if (exceptions.includes(name)) ref = name
+      return ref
     },
     onAssociateAroma(aroma) {
       // Highlight clicked aroma plus all associated aromas
