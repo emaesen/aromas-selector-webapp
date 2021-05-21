@@ -83,6 +83,10 @@ export default {
   font-style: italic;
 }
 .highlight3 {
+  color: #bdf735;
+  font-style: italic;
+}
+.highlight4 {
   color: #29dc58;
 }
 .aroma-properties {
