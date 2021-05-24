@@ -45,8 +45,11 @@
         @preview-aroma="onPreviewAroma"
       />
 
-      <h2>Legenda</h2>
-      <dl class="legenda">
+      <h2>
+        Legenda
+        <div class="action button" @click="toggleLegenda">{{ legandaToggleTxt }}</div>
+      </h2>
+      <dl class="legenda" v-if="showLegenda">
         <dt class="action button highlight1">
           ...name...
         </dt> 
@@ -102,6 +105,7 @@ export default {
       },
       nameRefExceptions:  ["Clary Sage", "Orange Blossom", "Balsam of Peru"],
       previewAroma: null,
+      showLegenda: false,
     };
   },
   setup(props, context) {
@@ -155,6 +159,9 @@ export default {
         .filter(a => !a.note.includes('middle') && a.note.includes('top'))
       return aromas
     },
+    legandaToggleTxt() {
+      return "≺ " + (this.showLegenda ? "collapse" : "expand")
+    },
   },
   methods: {
     getReferenceId(name) {
@@ -204,7 +211,10 @@ export default {
       this.association.reference = ""
       this.association.recommendedCombination = []
       this.association.blendsWellWith = []
-    }
+    },
+    toggleLegenda() {
+      this.showLegenda = !this.showLegenda
+    },
   }
 }
 </script>
@@ -247,6 +257,10 @@ export default {
     padding: 3px 0;
     margin: 7px 1em;
     font-style: italic;
+  }
+  dd::before {
+    content: "=";
+    padding-right: 9px;
   }
   .action.button.reset {
     position: absolute;
