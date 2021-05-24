@@ -225,7 +225,9 @@ export default {
     margin-bottom: 1em;
   }
   .aroma-name {
-    transition: all 1s ;
+    transition: all 1s;
+    font-size: 13px;
+    border: 1px solid rgba(130, 112, 173, .5);
   }
   .highlight-off {
     font-weight: 400;
@@ -245,9 +247,11 @@ export default {
   .highlight3 {
     color: #bdf735;
     font-style: italic;
+    border-color: rgb(130, 112, 173);
   }
   .highlight4 {
     color: #29dc58;
+    border-color: rgb(130, 112, 173);
   }
   dl {
     display: grid;
