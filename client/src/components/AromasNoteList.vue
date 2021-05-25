@@ -87,7 +87,7 @@ export default {
   border-radius: 3px;
   opacity: .54;
   font-size: 117%;
-  padding: 0 5px;
+  padding: 2px 5px;
   margin: -3px;
   position: relative;
   top: 1px;
@@ -113,21 +113,26 @@ export default {
   color: rgba(255, 117, 117, 0.507);
 }
 .action.button {
-  margin-left: 5px;
+  margin: 3px 4px;
+  padding: 2px 3px;
 }
 
 @media print {
   .note {
-    border: 1px solid rgb(153, 139, 230) !important;
+    border: 1px dashed rgb(153, 139, 230) !important;
   }
   .aroma-preview-button {
     display: none;
   }
   .aroma-properties {
-    color: rgb(153, 153, 153);
+    font-weight: 400;
+    color: rgb(104, 104, 104);
   }
   .aroma-recommendedAmount {
-  color: rgba(255, 117, 117, 0.801);
-}
+    color: rgb(255, 97, 97);
+  }
+  .aroma-popularity {
+    font-weight: 700;
+  }
 }
 </style>
