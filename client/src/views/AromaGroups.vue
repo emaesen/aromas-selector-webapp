@@ -279,24 +279,28 @@ export default {
       display: none !important;
     }
     .highlight1 {
-      color: #727012;
+      color: #024b26;
       font-style: italic;
       font-weight: 700;
       border: 3px double #638d00;
     }
     .highlight2 {
       color: #4f6816;
-      border: 2px solid #757317;
       font-style: italic;
+      font-weight: 400;
+      border: 2px solid #757317;
     }
     .highlight3 {
       color: #4f6816;
       font-style: normal;
+      font-weight: 400;
       border: 1px solid #757317;
     }
     .highlight4 {
       color: #39493d;
-      border: 1px dashed #175775;
+      font-style: normal;
+      font-weight: 400;
+      border: 1px dashed #1f7ba7;
     }
   }
 }
