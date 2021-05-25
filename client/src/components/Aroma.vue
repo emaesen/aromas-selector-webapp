@@ -10,7 +10,7 @@
 
     <div v-else>
       <button
-        class="action button edit"
+        class="action button edit no-print"
         @click="isEdit=true"
       >
         Edit

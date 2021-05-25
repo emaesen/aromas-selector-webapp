@@ -5,7 +5,7 @@
 
     <div class="aroma-notes">
 
-      <div class="action button reset"
+      <div class="action button reset no-print"
         @click="resetAssociation"
         v-if="association.name"
       >reset</div>
@@ -45,11 +45,11 @@
         @preview-aroma="onPreviewAroma"
       />
 
-      <h2>
+      <h2 class="no-print">
         Legenda
         <div class="action button" @click="toggleLegenda">{{ legandaToggleTxt }}</div>
       </h2>
-      <dl class="legenda" v-if="showLegenda">
+      <dl class="legenda no-print" v-if="showLegenda">
         <dt class="action button highlight1">
           ...name...
         </dt> 
@@ -270,6 +270,34 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+@media print {
+  .aroma-notes {
+    .highlight-off {
+      display: none !important;
+    }
+    .highlight1 {
+      color: #727012;
+      font-style: italic;
+      font-weight: 700;
+      border: 3px double #638d00;
+    }
+    .highlight2 {
+      color: #4f6816;
+      border: 2px solid #757317;
+      font-style: italic;
+    }
+    .highlight3 {
+      color: #4f6816;
+      font-style: normal;
+      border: 1px solid #757317;
+    }
+    .highlight4 {
+      color: #39493d;
+      border: 1px dashed #175775;
+    }
   }
 }
 </style>

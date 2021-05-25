@@ -115,4 +115,19 @@ export default {
 .action.button {
   margin-left: 5px;
 }
+
+@media print {
+  .note {
+    border: 1px solid rgb(153, 139, 230) !important;
+  }
+  .aroma-preview-button {
+    display: none;
+  }
+  .aroma-properties {
+    color: rgb(153, 153, 153);
+  }
+  .aroma-recommendedAmount {
+  color: rgba(255, 117, 117, 0.801);
+}
+}
 </style>

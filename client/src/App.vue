@@ -533,4 +533,26 @@ label.no_results_when_clicked {
     letter-spacing: .27em;
   }
 }
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background-color: #fff !important;
+  }
+  body,
+  input,
+  textarea,
+  select,
+  button {
+    color: #17161c !important;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px !important;
+  }
+  h1 {
+    margin-top: 0;
+  }
+}
 </style>
