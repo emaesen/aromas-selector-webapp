@@ -205,6 +205,14 @@
           />
         </div>
 
+        <div class="form-element">
+          <label class="form-label" for="inventory">Inventory</label>
+          <textarea
+            id="inventory" name="inventory"
+            v-model="aroma.inventory"
+            class="short"
+          />
+        </div>
 
 
       </div>

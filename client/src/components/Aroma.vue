@@ -82,6 +82,10 @@
         <span class="prop-name">Popularity</span>
         <span class="prop-value">{{ aroma.popularity }}</span>
       </div>
+      <div class="aroma-prop aroma-inventory">
+        <span class="prop-name">Inventory</span>
+        <span class="prop-value">{{ aroma.inventory || "---" }}</span>
+      </div>
     </div>
 
   </div>
