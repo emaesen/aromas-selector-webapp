@@ -8,6 +8,8 @@
         <router-link to="/aromas/" class="">Aromas</router-link>
         |
         <router-link to="/aroma-groups/" class="">Aroma Groups</router-link>
+        |
+        <router-link to="/aroma-terms/" class="">Terminology</router-link>
       </nav>
     </header>
 
