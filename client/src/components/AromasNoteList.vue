@@ -10,7 +10,7 @@
         :key="aroma.name"
         class="action button aroma-name"
         @click="(evt)=>onClickAroma(aroma,evt)"
-        :class="aroma.highlightClass"
+        :class="[aroma.highlightClass, {'out-of-stock':aroma.inventory==='0'}]"
       >
         <span class="aroma-preview-button"
           title="click to preview aroma below"
@@ -115,6 +115,10 @@ export default {
 .action.button {
   margin: 3px 4px;
   padding: 2px 3px;
+}
+.out-of-stock {
+  opacity: .7;
+  text-decoration: line-through;
 }
 
 @media print {
