@@ -13,7 +13,7 @@
         class="action button edit no-print"
         @click="isEdit=true"
       >
-        Edit
+        edit
       </button>
       <div class="aroma-prop aroma-name">
         <router-link :to="'#' + referenceID">
