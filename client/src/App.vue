@@ -339,6 +339,11 @@ a.router-link-active {
   font-size: 14px;
   font-family: Helvetica, Arial, sans-serif;
   text-transform: initial;
+  min-width: 1em;
+  text-align: center;
+}
+.action.button.inactive {
+  cursor: initial;
 }
 button,
 .action.button {
