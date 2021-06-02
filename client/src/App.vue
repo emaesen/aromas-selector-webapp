@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header id="header">
-      <router-link :to="'#top'" class="float right">top</router-link>
+      <router-link :to="'#top'" class="float right action button">top</router-link>
       <img src="/img/icons/favicon-32x32.png" class="icon"/>
       <div class="header">Aromas Selector</div>
       <nav>
@@ -342,8 +342,11 @@ a.router-link-active {
   min-width: 1em;
   text-align: center;
 }
+a.action.button.router-link-active {
+  color: rgb(189, 177, 219);
+}
 .action.button.inactive {
-  cursor: initial;
+  cursor: default;
 }
 button,
 .action.button {
