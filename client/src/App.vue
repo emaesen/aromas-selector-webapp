@@ -75,7 +75,7 @@ textarea,
 select,
 button {
   color: #e9e4f2;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Candara, Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 h1,
