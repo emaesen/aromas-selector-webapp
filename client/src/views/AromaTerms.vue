@@ -160,7 +160,7 @@
          <span class="aroma-group">CHYPRE</span>
         </dt>
         <dd>
-          A fragrance accord blend of aldehydes built upon a citrus (<span class="aroma">Bergamot</span>) and mossy base (<span class="aroma">Oakmoss</span>). This classical accord has been widely used in both men’s and women’s fragrances.
+          A fragrance accord blend of aldehydes built upon a citrus (<span class="aroma">bergamot</span>) and mossy base (<span class="aroma">oakmoss</span>). This classical accord has been widely used in both men’s and women’s fragrances.
         </dd>
         <dt>
           CITRUS
@@ -348,19 +348,19 @@
           <span class="aroma-group">FOREST BLENDS</span>
         </dt>
         <dd>
-          A definition of this group would be that of –woody, mossy, leafy and herbaceous. The aroma chemical manufacturer has given the perfumer many new materials that are characteristic of modern perfumery. These notes, when blended with natural forest products, develop into a wide variety of fragrances ranging from chypres to herbals. Examples of this group are <span class="fragrance">Aliage</span>, <span class="fragrance">Polo</span> and <span class="fragrance">Devin</span>.
+          A definition of this group would be that of –<span class="aroma">woody</span>, <span class="aroma">mossy</span>, <span class="aroma">leafy</span> and <span class="aroma">herbaceous</span>. The aroma chemical manufacturer has given the perfumer many new materials that are characteristic of modern perfumery. These notes, when blended with natural forest products, develop into a wide variety of fragrances ranging from chypres to herbals. Examples of this group are <span class="fragrance">Aliage</span>, <span class="fragrance">Polo</span> and <span class="fragrance">Devin</span>.
         </dd>
         <dt>
           <span class="aroma-group">FOUGERE</span>
         </dt>
         <dd>
-          A classical accord built upon mossy, lavender, citrus character. The fougere accord is a very important class of fragrance used in perfumery.
+          A classical accord built upon <span class="aroma">mossy</span>, <span class="aroma">lavender</span>, <span class="aroma">citrus</span> character. The fougere accord is a very important class of fragrance used in perfumery.
         </dd>
         <dt>
           <span class="aroma-group">FOUGERE (2)</span>
         </dt>
         <dd>
-          French word for “fern.” Fougere fragrances depend on aromatic chemicals to produce the fern-like notes that combine well with lavender, citrus and coumarin in fragrances for men.
+          French word for “fern.” Fougere fragrances depend on aromatic chemicals to produce the fern-like notes that combine well with <span class="aroma">lavender</span>, <span class="aroma">citrus</span> and <span class="aroma">coumarin</span> in fragrances for men.
         </dd>
         <dt>
           FRAGRANCE
@@ -372,13 +372,13 @@
           FRESH
         </dt>
         <dd>
-          An effect introduced into a fragrance by the use of citrus oils, green notes, mint notes, and most recently ozone notes.
+          An effect introduced into a fragrance by the use of <span class="aroma">citrus</span> oils, <span class="aroma">green</span> notes, <span class="aroma">mint</span> notes, and most recently <span class="aroma">ozone</span> notes.
         </dd>
         <dt>
           FRUITY
         </dt>
         <dd>
-          A note reminiscent of cherry, apple, peach, strawberry, plum, or any other fruit type.
+          A note reminiscent of <span class="aroma">cherry</span>, <span class="aroma">apple</span>, <span class="aroma">peach</span>, <span class="aroma">strawberry</span>, <span class="aroma">plum</span>, or any other fruit type.
         </dd>
         <dt>
           FULL-BODIED
@@ -390,7 +390,7 @@
           FUNGAL
         </dt>
         <dd>
-          Odors suggestive of molds, mushrooms and fungi. Important notes in muguet fragrances as well as other florals.
+          Odors suggestive of <span class="aroma">molds</span>, <span class="aroma">mushrooms</span> and <span class="aroma">fungi</span>. Important notes in muguet fragrances as well as other florals.
         </dd>
       </dl>
 
